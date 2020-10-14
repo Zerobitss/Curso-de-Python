@@ -1,11 +1,13 @@
-pesos = input("Cuantos pesos tienes?: ")
-pesos = float(pesos)
-valor_dolar = 3875
-dolares = pesos / valor_dolar
+bolivares = input("Cuantos bolivares tienes?: ")
+bolivares = float(bolivares)
+valor_dolar = 400000
+dolares = bolivares / valor_dolar
 dolares = round(dolares, 2)
 dolares = str(dolares)
-<<<<<<< HEAD
 print("Tu cantidad en dolares es: "+ dolares +"$")
-=======
-print("Tienes esta cantidades de dolares: "+ dolares)
->>>>>>> c5bc1008cdf369d27e1ffaf79ee96e8a6e7c1edf
+dolar = input("Cuantos dolares tienes?: ")
+dolar = float(dolar)
+cambio = dolar * valor_dolar
+cambio = round(cambio, 2)
+cambio = str(cambio)
+print("Tu cantidad de bolivares es: "+cambio+"Bs")
