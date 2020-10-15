@@ -1,3 +1,11 @@
+def conversor (moneda, valor_dolar):
+    pesos = input("Cuantos "+ moneda +" tienes?: ")
+    pesos = float(pesos)
+    dolares = pesos / valor_dolar
+    dolares = round(dolares, 2)
+    dolares = str(dolares)
+    print("Tu cantidad en dolares es: "+ dolares +"$")
+    return
 menu = """
 Bienvenido al conversor de monedas 💰
 
@@ -10,45 +18,15 @@ Bienvenido al conversor de monedas 💰
 Eligue una opcion: """
 opcion = int(input(menu))
 if opcion == 1:
-    pesoscol = input("Cuantos pesos Colombianos tienes?: ")
-    pesoscol = float(pesoscol)
-    valor_dolar = 3900
-    dolares = pesoscol / valor_dolar
-    dolares = round(dolares, 2)
-    dolares = str(dolares)
-    print("Tu cantidad en dolares es: "+ dolares +"$")
+    conversor( "Pesos colombianos",3900)
 elif opcion == 2:
-    pesosar = input("Cuantos pesos Argentinos tienes?: ")
-    pesosar = float(pesosar)
-    valor_dolar = 77.41
-    dolares = pesosar / valor_dolar
-    dolares = round(dolares, 2)
-    dolares = str(dolares)
-    print("Tu cantidad en dolares es: "+ dolares +"$")
+    conversor( "Pesos argentinos",74)
 elif opcion == 3:
-    pesosmex = input("Cuantos pesos Mexicanos tienes?: ")
-    pesosmex = float(pesosmex)
-    valor_dolar = 21
-    dolares = pesosmex / valor_dolar
-    dolares = round(dolares, 2)
-    dolares = str(dolares)
-    print("Tu cantidad en dolares es: "+ dolares +"$")
+    conversor("Pesos mexicanos", 21)
 elif opcion == 4:
-    pesoschil = input("Cuantos pesos Chilenos tienes?: ")
-    pesoschil = float(pesoschil)
-    valor_dolar = 800
-    dolares = pesoschil / valor_dolar
-    dolares = round(dolares, 2)
-    dolares = str(dolares)
-    print("Tu cantidad en dolares es: "+ dolares +"$")
+    conversor("Pesos chilenos", 800)
 elif opcion == 5:
-    bolivares = input("Cuantos bolivares tienes?: ")
-    bolivares = float(bolivares)
-    valor_dolar = 400000
-    dolares = bolivares / valor_dolar
-    dolares = round(dolares, 2)
-    dolares = str(dolares)
-    print("Tu cantidad en dolares es: "+ dolares +"$")
+    conversor("Bolivares", 450000)
 else:
     print("Eligue una de las opciones del menu correctamente")
 #dolar = input("Cuantos dolares tienes?: ")
