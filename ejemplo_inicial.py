@@ -1,0 +1,12 @@
+import turtle
+myTurtle = turtle.Turtle()
+myWin = turtle.Screen()
+myTurtle.forward(50)
+myTurtle.left(90)
+myTurtle.forward(50)
+myTurtle.left(90)
+myTurtle.forward(50)
+myTurtle.left(90)
+myTurtle.forward(50)
+myTurtle.left(90)
+turtle.mainloop()
