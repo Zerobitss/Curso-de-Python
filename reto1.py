@@ -21,12 +21,55 @@
 #     print(f'x = {x}')
 # else:
 #     print(f'x != {x}')
-objetivo = int(input("Escoge un entero: "))
-respuesta = 0
-while respuesta**2 < objetivo :
-    print(respuesta)
-    respuesta +=1
-if respuesta**2 == objetivo:
-    print(f'La raiz cuadrada de {objetivo} es {respuesta}')
-else:
-    print(f'{objetivo} no tiene raiz cuadrada exacta')
+# objetivo = int(input("Escoge un entero: "))
+# respuesta = 0
+# while respuesta**2 < objetivo :
+#     print(respuesta)
+#     respuesta +=1
+# if respuesta**2 == objetivo:
+#     print(f'La raiz cuadrada de {objetivo} es {respuesta}')
+# else:
+#     print(f'{objetivo} no tiene raiz cuadrada exacta')
+# x = "awesome"
+
+# def myfunc():
+#   global y
+#   y = 'great'
+#   print("Python is " + x + y)
+
+# myfunc()
+# print(y)
+# def suma(a, b):
+#     """ Suma dos valores a y b.
+#     param int a cualquier entero
+#     param int b cualquier entero
+#     returns la sumatoria de a y b
+#     """
+#     total = a + b
+#     print('mensaje')
+#     return total
+
+# suma()
+# def factorial (n):
+#     """Calcula el factorial de n.
+#     n int > 0.
+#     returns n!
+#     """
+#     print(n)
+#     if n == 1:
+#         return 1
+#     return n * factorial(n - 1 )
+# n = int(input("Escribe un entero: "))
+# print(factorial(n))
+# def suma (n):
+#     print(n)
+#     if n == 1:
+#         return 1
+#     else:
+#         return n + suma (n - 1)
+# n = int(input("Escribe un numero: "))
+# print(suma(n))
+my_range = range (0, 100)
+for i in my_range:
+    if i % 2 > 0:
+        print(i)
