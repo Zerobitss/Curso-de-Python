@@ -68,7 +68,7 @@ KEYS = {
 }
 def cypher(message):
     words = message.split(" ") # Dividir palabras con un espacio
-    cypher_message = []
+    cypher_message = [] #Lista que guardara el mensaje cifrado
     for word in words:
         cypher_word = ''
         for letter in word:
@@ -76,10 +76,10 @@ def cypher(message):
         cypher_message.append(cypher_word)
         return ''.join(cypher_message) #Agregar espacios a las palabras
 def decypher(message):
-    words = message.split(' ')
+    words = message.split(' ') #Dividir palabra a lista por espacios
     decypher_message = []
     for word in words:
-        decypher_word = ''
+        decypher_word = '' #Lugar donde se almacenan los key o values para cifrar o decifrar el mensaje
         for letter in word:
             for key, value in KEYS.items():
                 if value == letter:
@@ -88,12 +88,16 @@ def decypher(message):
     return ' '.join(decypher_message)
 def run():
     while True:
-        menu = str(input('''--- * --- * --- * --- * --- * --- * --- * ---
-            Bienvenido a criptografía. ¿Qué deseas hacer?
-            1.- Cifrar mensaje
-            2.- Decifrar mensaje
-            3.- Salir
-        '''))
+        menu = str(input(
+'''--- * --- * --- * --- * --- * --- * --- * ---
+        ✔ Bienvenido a criptografía. ¿Qué deseas hacer?😁
+        1.- Cifrar mensaje
+        2.- Decifrar mensaje
+        3.- Salir
+------------------------------------------------------
+
+        Eligue una opcion: '''
+        ))
         if menu == '1':
             mensaje = str(input("Escribe un mensaje: "))
             cypher_message = cypher(mensaje)
