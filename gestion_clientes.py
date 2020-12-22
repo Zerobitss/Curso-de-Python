@@ -101,7 +101,7 @@ def run():
     while opcion == 5:
         print("Haz elegido la opcion (5.- Listar todos los clientes preferentes)\n")
         for key, value in clientes.items(): #Ciclo for con dos iteradores para recorrer llaves y valores
-            if value['preferente']: #si el valor preferente == True, entonces
+            if value['preferente']: #si el valor preferente == True, entonces solo imprimira a los clientes preferentes anteriormente declarados
                 print(key, value['nombre'])#Imprimir la llave y el valor del ['nombre']
         opcion = str(input("Que deseas hacer ahora?: ")) #Reinicio del while
     while opcion == 6:
