@@ -23,13 +23,15 @@ Terminar el programa.
 #NIF sera la llave del cliente
 #El valor del cliente sera una tupla, nombre direccion, telefono, correo
 #Valor true a clientes preferente
+def navagacion(opcion):
+    pass
 def run():
     clientes = {}#Diccionario de datos
     opcion = int(input("Escribe tu opcion: "))#Variable de opcion para navegar entre el menu de los while
     while opcion == 1:
         print("Haz elegido la opcion (1.- Añadir cliente)\n")
         nif = str(input("Ingresa el NIF del cliente, en este caso este sera su ID dentro de la empresa: "))
-        nombre = input("Ingresa el nombre del cliente: ")
+        nombre = str(input("Ingresa el nombre del cliente: "))
         direccion = str(input("Ingresa la direccion del cliente: "))
         telefono = str(input("Ingresa el telefono del cliente: "))
         correo = str(input("Ingresa el correo del cliente: "))
@@ -40,6 +42,7 @@ def run():
             preferente = False
         else:
             print("Escribe una opcion correcta (y/n)")
+        opcion(opcion)
         datos_cliente = {
         'nombre': nombre,
         'dirección': direccion,
@@ -76,7 +79,7 @@ def run():
             print("Actualmente no existen clientes registrados")
             opcion = int(input("Que deseas hacer ahora?: "))
     while opcion == 3:
-        if any(clientes):
+        #if any(clientes):
             print("Haz eligido la opcion (3.- Mostrar cliente)\n")
             idcliente = str(input("Ingresa el NIF del cliente que desas buscar: ")) #id cliente va a ser igual al nif del cliente
             if idcliente in clientes.keys(): # si id cliente existe dentro de las llaves del diccionario
@@ -90,7 +93,7 @@ def run():
                     opcion = int(input("Que deseas hacer ahora?: "))
             else:
                 print(f"No se encontro el NIF: {idcliente}")
-        else:
+        #else:
             print("Actualmente no existen clientes registrados")
             opcion = int(input("Que deseas hacer ahora?: "))
     while opcion == 4:
@@ -102,7 +105,7 @@ def run():
         print("Haz elegido la opcion (5.- Listar todos los clientes preferentes)\n")
         for key, value in clientes.items(): #Ciclo for con dos iteradores para recorrer llaves y valores
             if value['preferente']: #si el valor preferente == True, entonces solo imprimira a los clientes preferentes anteriormente declarados
-                print(key, value['nombre'])#Imprimir la llave y el valor del ['nombre']
+                print(f"Su NIF: {key}, Su Nombre: {value['nombre']}")#Imprimir la llave y el valor del ['nombre']
         opcion = str(input("Que deseas hacer ahora?: ")) #Reinicio del while
     while opcion == 6:
         print("Haz elegido la opcion (6.- Terminar)")
