@@ -1,44 +1,51 @@
-def menu():
-    menu_principal = ['Pizzas','Pasta','Ensaladas','Parilla']
+def plato():
+    menu_principal = ['Pizzas','Pasta','Ensaladas']
     menu_eleccion = [menu_pizzas(), menu_pasta(), menu_ensalada()]
     opcion_menu = int(input("1.-Pizzas\n2.-Pasta\n3.-Ensaladas\nQue deseas comer hoy: "))
-    pedido = {}
-    try:
-        if (opcion_menu < len(menu_principal)) and (opcion_menu > 0):
-            print(f"Tu eleccion fue: {menu_principal[opcion_menu-1]}")
-            iterador(menu_eleccion[opcion_menu-1])
-            menu_eleccion = menu_eleccion[opcion_menu-1]
-            plato = menu_principal[opcion_menu-1]
-            opcion_plato = int(input("Que deseas pedir: "))
-            for j in range(len(menu_eleccion)):
-                if opcion_menu == j:
-                    print(f"Pediste una {plato}, {menu_eleccion[opcion_plato-1]}")
-            sabor = menu_eleccion[opcion_plato-1]
-            adicional = extras()
-            if adicional is True:
-                adicionales = int(input("\n1.-Aperitivos\n2.-Salsas\nQue deseas agregar: "))
-                if adicionales == 1:
-                    extra = menu_extras()
-                elif adicionales == 2:
-                    extra = menu_extra_salsas()
-                print("Estos son los ingredientes que puedes agregar: ")
-                iterador(extra)
-                opcion_extra = int(input("Cual deseas agregar: "))
-                plato = plato +", " +sabor
-                for k in range(len(extra)):
-                    if opcion_extra == k:
-                        pedido[plato] = extra[opcion_extra-1]
-                for key, value in pedido.items():
-                    print(f"Pediste: {key}, con Extra: {value}")
-                    print("gracias por venir")
-            else:
-                pedido = {plato: sabor}
-                for key, value in pedido.items():
-                    print(f"Su plato es: ({key}) de ({value})")
-            return pedido
-    except Exception as opcion_menu:
-        print(type(opcion_menu).__name__)
-        print(f"Su opcion no se encuentra dentro de nuestro menu, porfavor eligue una correcta")
+    if (opcion_menu <= len(menu_principal)):
+        print(f"Tu eleccion fue: {menu_principal[opcion_menu-1]}")
+        iterador(menu_eleccion[opcion_menu-1])
+        menu_eleccion = menu_eleccion[opcion_menu-1]
+        plato = menu_principal[opcion_menu-1]
+        return plato, menu_eleccion
+def plato_sabor():
+        menu_eleccion = plato()
+        iterador(menu_eleccion[1])
+        opcion_plato = int(input("Que deseas pedir: "))
+        for j in range(len(menu_eleccion[1])):
+            if opcion_plato == j:
+                print(f"Pediste una {menu_eleccion[0]}, {menu_eleccion[1][opcion_plato-1]}")
+        sabor = menu_eleccion[1][opcion_plato-1]
+        pedido = menu_eleccion[0]+", "+ sabor
+        return pedido
+def pedido_extra():
+    adicional = extras()
+    extra = []
+    if adicional is True:
+        adicionales = int(input("\n1.-Aperitivos\n2.-Salsas\nQue deseas agregar: "))
+        if adicionales == 1:
+            extra = menu_extras()
+        elif adicionales == 2:
+            extra = menu_extra_salsas()
+            iterador(extra)
+        print("Estos son los ingredientes que puedes agregar: ")
+        return extra
+    else:
+        return extra
+def pedido_final():
+    pedido = plato_sabor()
+    extra = pedido_extra()
+    pedido_final = {}
+    if any(extra):
+        opcion_extra = int(input("Cual deseas agregar: "))
+        for k in range(len(extra)):
+            if opcion_extra == k:
+                suplemento = extra[opcion_extra-1]
+        pedido_final[pedido] = suplemento
+        for key, value in pedido_final.items():
+            print(f"Pediste: {key}, con Extra: {value}")
+    else:
+            print(f"Su plato es: {pedido}")
 def iterador(menu_impresion):
     for i, j in enumerate(menu_impresion,1):
         print(i, j)
@@ -77,6 +84,6 @@ def extras():
         print("Escriba una opcion correcta")
 def run():
     print("🍕Bienvenido a la pizzeria🍕")
-    menu()
+    pedido_final()
 if __name__ == "__main__":
     run()
